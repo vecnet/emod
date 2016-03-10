@@ -1,0 +1,116 @@
+{% load staticfiles bootstrap3 notification_template_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <!-- To ensure proper rendering and touch zooming, use the viewport meta tag -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>{% block page_title %} Project {% endblock %}</title>
+        <!-- Favicon for t he project -->
+        <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon"/>
+
+        {% block js %}
+            <!-- jQuery library from Google CDN -->
+            <script src="{% static 'js/jquery/1.11.3/jquery.min.js' %}"></script>
+            <script src="{% static 'js/load_spinner.js' %}" type="text/javascript"></script>
+            <!-- Latest compiled and minified Bootstrap JavaScript -->
+    {#        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>#}
+        {% endblock %}
+
+        {% block google_analytics %}
+            <!-- Google analytics javascript code goes here -->
+        {% endblock %}
+
+        {# Load JavaScript #}
+        <script src="{% static 'bootstrap-3.3.5/js/bootstrap.min.js' %}"></script>
+
+        {# Broken in Django 1.9 #}
+{#        {% bootstrap_javascript %}#}
+
+
+        <!-- Default CSS styles -->
+        {% block css %}
+            {# Load CSS #}
+            <link href="{% static 'bootstrap-3.3.5/css/bootstrap.min.css' %}" rel="stylesheet">
+
+            {# Broken in Django 1.9 #}
+{#            {% bootstrap_css %}#}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    {#        <!-- Latest compiled and minified Bootstrap CSS -->#}
+    {#        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">#}
+    {#        <!-- Optional Bootstrap theme -->#}
+    {#        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">#}
+    {#        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">#}
+            <!-- Project CSS -->
+            <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
+        {% endblock %}
+
+        {% block extra_css %}
+        {% endblock %}
+    </head>
+
+    <body>
+    {% block body %}
+        {% block jumbotron %}
+            <div class="jumbotron">
+                <div class="container">
+                    <h1>{% block jumbotron_title %}Project Title <sup><i style="color: yellowgreen">beta</i></sup>{% endblock %}</h1>
+                    <p class="lead">{% block jumbotron_tagline %}Tagline{% endblock %}</p>
+                </div>
+            </div>
+        {% endblock %}
+
+    {#    Notifications set by website.notification.set_notification function  #}
+        {% block notifications %}
+            {% notifications %}
+        {% endblock %}
+
+        <!-- Navigation bar -->
+        {% block navbar %}
+        {% endblock %}
+
+        <!-- Login/logout button -->
+{#        {% block login_logout %}#}
+{#            {% if user.username %}#}
+{#                 <p class="text-right"> <a href="{{ LOGOUT_URL }}"> Logout ({{ user.username }}) </a> </p>#}
+{#            {% else %}#}
+{#                 <p class="text-right"> <a href="{{ LOGIN_URL }}?{{ REDIRECT_FIELD_NAME }}={{ request.build_absolute_uri }}"> Log in </a></p>#}
+{##}
+{#            {% endif %}#}
+{#        {% endblock %}#}
+
+
+
+        {# Page stuff #}
+        {% include 'load_spinner.html' %}
+
+        <div id="page-content" style="display: none">
+            {% block main_content %}
+            {% endblock %}
+        </div>
+        {# Page stuff #}
+
+
+
+        {% block footer %}
+            <footer class="footer">
+                <hr>
+                <p class="text-center">
+                    <a href="#">Contact us</a> |
+                    <a href="{% url 'credits' %}">Credits</a> |
+                    <a href="#">About</a>
+                </p>
+
+                <p class="text-center">
+                    Copyright &copy; 2016 <a href="#"> University Of Notre Dame</a>
+                </p>
+            </footer>
+        {% endblock %}
+
+        {% block extra_js %}
+        {% endblock %}
+    {% endblock %}
+    </body>
+</html>

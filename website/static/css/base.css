@@ -1,0 +1,58 @@
+/* Body needs 40px padding at top to account for menu bar at the top*/
+body { padding-top:40px; font-size:14px; margin-left:10px; margin-right: 10px;}
+
+/*** Jumbotron style ***/
+.jumbotron {
+    position: relative;
+    padding: 15px 0;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+    background: -moz-linear-gradient(top, #012f4c 0%, #47876d 100%);  /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#012f4c), color-stop(100%,#47876d)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #012f4c 0%,#47876d 100%);  /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #012f4c 0%,#47876d 100%);  /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #012f4c 0%,#47876d 100%);  /* IE10+ */
+    background: linear-gradient(to bottom, #012f4c 0%,#47876d 100%);  /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#012f4c', endColorstr='#47876d',GradientType=0 ); /* IE6-9 */
+    -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+    -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2); box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+    margin-bottom:40px; /* margin-bottom:20px; */
+    /* Revert margin defined in body element */
+    margin-left:-10px;
+    margin-right:-10px;
+}
+.jumbotron h1 { font-size: 54px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: left}
+.jumbotron p { font-size: 24px; font-weight: 300; line-height: 1.0; margin-bottom: 30px;  } /* line-height:1.25 -ked */
+/*** End Jumbotron style ***/
+
+/*** disable resizing on textarea tags ***/
+textarea{
+  resize:none;
+}
+
+.sorting_none
+{
+    background-image:url("https://cdn.datatables.net/1.10.7/images/sort_both.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+.sorting_asc
+{
+    background-image:url("https://cdn.datatables.net/1.10.7/images/sort_asc.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+.sorting_desc
+{
+    background-image:url("https://cdn.datatables.net/1.10.7/images/sort_desc.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+.sortable_th
+{
+    border: 1px solid #ddd;
+}

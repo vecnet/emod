@@ -1,0 +1,22 @@
+<ul class="nav nav-pills">
+    <li role="presentation" {% if active_nav == 'home' %} class="active" {% endif %}>
+        <a href="{% url 'index' %}"> Home </a>
+    </li>
+
+    {% if request.user.is_staff %}
+        {# user.is_staff designates whether the user can log into this admin site. #}
+        <li role="presentation" {% if active_nav == 'admin' %} class="active" {% endif %}>
+            <a href="/admin"> Admin </a>
+        </li>
+    {% endif %}
+
+    {% if user.username %}
+        <li>
+            <a href="{{ LOGOUT_URL }}"> Logout ({{ user.username }}) </a>
+        </li>
+    {% else %}
+        <li>
+            <a href="{{ LOGIN_URL }}?{{ REDIRECT_FIELD_NAME }}={{ request.build_absolute_uri }}"> Log in </a>
+        </li>
+    {% endif %}
+</ul>

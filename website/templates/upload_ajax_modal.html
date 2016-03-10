@@ -1,0 +1,30 @@
+{% load bootstrap3 filters %}
+
+{% with clean_type=type|replace_spaces_with_underscores %}
+    <div id="{{ clean_type }}-{{ id }}-upload-modal" class="modal fade" tabindex="-1" role="dialog"
+        aria-labelledby="{{ clean_type }}-{{ id }}-upload-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="{{ clean_type }}-{{ id }}-upload-modal-label"> Upload {{ name }} </h3>
+                </div>
+
+                <div class="modal-body">
+                    <input type="file" id="{{ clean_type }}-{{ id }}-file" />
+                </div>
+
+                <div class="modal-footer">
+                    <div>
+                        <button class="btn btn-info" onclick="{{ function }}">
+                            {% bootstrap_icon 'upload' %} Upload
+                        </button>
+                        <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true">
+                            {% bootstrap_icon 'ban-circle' %} Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endwith %}
